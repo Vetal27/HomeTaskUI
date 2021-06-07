@@ -18,7 +18,7 @@ import java.util.List;
 import static io.github.bonigarcia.wdm.WebDriverManager.chromedriver;
 import static org.junit.Assert.assertTrue;
 
-public class MyStepdefs {
+public class MyStepdefenitions {
     private static final long DEFAULT_TIMEOUT = 30;
     private static final By BUY_BUTTON = By.xpath("//button[@class='buy-button button button_with_icon button_color_green button_size_large ng-star-inserted']");
     WebDriver driver;
@@ -185,11 +185,11 @@ public class MyStepdefs {
     public void userCheckThatFirstProductCheaperThanLast() {
         List<WebElement> list = IPhonePage.getProductPriceList();
         for (int i = 1; i < list.size(); i++) {
-            String string = list.get(i).getText().replaceAll(" ", "");
-            String string1 = list.get(i -1).getText().replaceAll(" ", "");
-            int value = Integer.parseInt(string);
-            int value1 = Integer.parseInt(string1);
-            assertTrue(value1 <= value);
+            String first_string = list.get(i).getText().replaceAll(" ", "");
+            String second_string = list.get(i -1).getText().replaceAll(" ", "");
+            int first_value = Integer.parseInt(first_string);
+            int second_value = Integer.parseInt(second_string);
+            assertTrue(second_value <= first_value);
         }
     }
 
@@ -204,11 +204,11 @@ public class MyStepdefs {
     public void userCheckThatFirstProductMoreExpensiveThanLast() {
         List<WebElement> list = IPhonePage.getProductPriceList();
         for (int i = 2; i < list.size(); i++) {
-            String string = list.get(i).getText().replaceAll(" ", "");
-            String string1 = list.get(i - 1).getText().replaceAll(" ", "");
-            int value = Integer.parseInt(string);
-            int value1 = Integer.parseInt(string1);
-            assertTrue(value <= value1);
+            String first_string = list.get(i).getText().replaceAll(" ", "");
+            String second_string = list.get(i - 1).getText().replaceAll(" ", "");
+            int first_value = Integer.parseInt(first_string);
+            int second_value = Integer.parseInt(second_string);
+            assertTrue(first_value <= second_value);
         }
     }
     @After
